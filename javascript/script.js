@@ -48,7 +48,7 @@ function entradaDatos() {
     case 'Cangreburger':
         precioBurger = 12000;
     break;
-    case 'Afroamerican':
+    case 'Bigmac':
         precioBurger = 15000;
     break;
     case 'Cancha':
@@ -82,9 +82,9 @@ function mostrarResultados() {
     let mensaje = `Detalle de la venta:
     Modelo: ${modeloBurger}
     Cantidad: ${cantidad}
-    Precio unitario: $${precioBurger}
+    Precio unitario: ${precioBurger}
     Descuento: ${descuento * 100}%
-    Total a pagar: $${totalFactura}`; 
+    Total a pagar: ${totalFactura}`; 
 
     alert(mensaje);
 
