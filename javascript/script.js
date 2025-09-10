@@ -1,120 +1,80 @@
-// Declaración de variables globales
-let modeloBurger;
-let precioBurger;
-let cantidad;
-let descuento;
-let totalFactura;
-let stockDisponible = {
-    'Cangreburger': 50,
-    'Bigmac': 30,
-    'Cancha': 40,
-    'Afroamerican': 25
-};
-let registroVentas = [];
+const hamburguesas = [
+      { nombre: "Cangreburger", precio: 13000 },
+      { nombre: "BigMac", precio: 15500 },
+      { nombre: "Cancha", precio: 12000 },
+      { nombre: "Afroamerican", precio: 20000 }
+    ];
 
-// Saludo personalizado
-let nombreUsuario;
+    let carrito = [];
 
-for (; !nombreUsuario;) {
-    nombreUsuario = prompt("¡Bienvenido a Hamburguesas Krusty! Ingresa tu nombre");
-}
+    function mostrarMenu() {
+      const tbody = document.getElementById('menu-body');
+      tbody.innerHTML = '';
+      hamburguesas.forEach((burger, idx) => {
+        let desc = '';
+        if (burger.nombre === "Cangreburger") {
+          desc = '<div class="desc">Solo disponible comprando 3 o más unidades</div>';
+        }
+        tbody.innerHTML += `
+          <tr>
+            <td>${burger.nombre} ${desc}</td>
+            <td>$${burger.precio.toLocaleString()}</td>
+            <td>
+              <input type="number" id="qty${idx}" value="1" min="1" style="width:50px">
+            </td>
+            <td>
+              <button onclick="agregar('${burger.nombre}', ${burger.precio}, 'qty${idx}')">Agregar</button>
+            </td>
+          </tr>
+        `;
+      });
+    }
 
-confirm(
-    `Hola ${nombreUsuario}, vamos a registrar una venta. Para continuar, presiona Aceptar.`
-);
+    function agregar(nombre, precio, qtyId) {
+      let cantidad = parseInt(document.getElementById(qtyId).value);
+      if (isNaN(cantidad) || cantidad < 1) return;
 
-// Función para pedir datos
-function entradaDatos() {
-    modeloBurger = prompt(`Ingresa el modelo de lámpara (Cangreburger, Bigmac, Cancha, Afroamerican). Stock disponible:
-    Cangreburger: ${stockDisponible['Cangreburger']} unidades
-    Bigmac: ${stockDisponible['Bigmac']} unidades
-    Cancha: ${stockDisponible['Cancha']} unidades
-    Afroamerican: ${stockDisponible['Afroamerican']} unidades`);
+      // Cangreburger solo se puede comprar si son 3 o más
+      if (nombre === "Cangreburger" && cantidad < 3) {
+        alert("La Cangreburger solo está disponible comprando 3 o más unidades.");
+        return;
+      }
 
-  // Validar modelo ingresado
-    while (!['Cangreburger', 'Bigmac', 'Cancha', 'Afroamerican'].includes(modeloBurger)) {
-    modeloBurger = prompt("Modelo no válido. Ingresa Cangreburger, Bigmac, Cancha o Afroamerican");
-}
+      // Si ya está en el carrito, sumamos
+      const idx = carrito.findIndex(item => item.nombre === nombre);
+      if (idx > -1) {
+        carrito[idx].cantidad += cantidad;
+      } else {
+        carrito.push({ nombre, precio, cantidad });
+      }
+      actualizarCarrito();
+    }
 
-    cantidad = parseInt(prompt("Ingresa la cantidad de Hamburguesas a comprar"));
+    function actualizarCarrito() {
+      const lista = document.getElementById('cart-list');
+      lista.innerHTML = '';
+      let total = 0;
+      carrito.forEach(item => {
+        let subtotal = item.precio * item.cantidad;
+        let descuento = 0;
+        if (item.cantidad >= 3) {
+          descuento = subtotal * 0.05;
+          subtotal -= descuento;
+        }
+        total += subtotal;
+        const li = document.createElement('li');
+        li.innerHTML = `${item.nombre} x${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString()}`
+          + (descuento > 0 ? ` <span class="desc">(-5% desc: -$${descuento.toLocaleString()})</span>` : '')
+          + ` <button onclick="eliminar('${item.nombre}')">Eliminar</button>`;
+        lista.appendChild(li);
+      });
+      document.getElementById('total').textContent = `Total: $${total.toLocaleString()}`;
+    }
 
-  // Validar que haya suficiente stock
-    while (cantidad > stockDisponible[modeloBurger]) {
-    cantidad = parseInt(prompt(`No hay suficiente stock. Solo quedan ${stockDisponible[modeloBurger]} unidades. Ingresa una cantidad menor`));
-}
+    function eliminar(nombre) {
+      carrito = carrito.filter(item => item.nombre !== nombre);
+      actualizarCarrito();
+    }
 
-  // Asignar precios según modelo
-    switch(modeloBurger) {
-    case 'Cangreburger':
-        precioBurger = 12000;
-    break;
-    case 'Bigmac':
-        precioBurger = 15000;
-    break;
-    case 'Cancha':
-        precioBurger = 18000;
-    break;
-    case 'Afroamerican':
-        precioBurger = 20000;
-    break;
-}
-}
-
-// Función para calcular descuento y total
-function procesarVenta() {
-// Aplicar descuento según cantidad
-    if (cantidad >= 10) {
-        descuento = 0.15; // 15% de descuento
-} 
-    else if (cantidad >= 5) {
-        descuento = 0.10; // 10% de descuento
-
-} 
-    else {
-        descuento = 0;
-}
-
-    totalFactura = (precioBurger * cantidad) * (1 - descuento);
-}
-
-// Función para mostrar resultados
-function mostrarResultados() {
-    let mensaje = `Detalle de la venta:
-    Modelo: ${modeloBurger}
-    Cantidad: ${cantidad}
-    Precio unitario: ${precioBurger}
-    Descuento: ${descuento * 100}%
-    Total a pagar: ${totalFactura}`; 
-
-    alert(mensaje);
-
-  // Actualizar stock
-    stockDisponible[modeloBurger] -= cantidad;
-    console.log(`Stock actualizado - ${modeloBurger}: ${stockDisponible[modeloBurger]} unidades`);
-}
-
-// Bucle principal para registrar múltiples ventas
-let continuar = true;
-
-while (continuar) {
-    entradaDatos();
-    procesarVenta();
-    mostrarResultados();
-
-  // Guardar registro
-    registroVentas.push({
-    modelo: modeloBurger,
-    cantidad: cantidad,
-    precioUnitario: precioBurger,
-    descuento: `${descuento * 100}%`,
-    total: totalFactura,
-});
-
-    continuar = confirm("¿Deseas registrar otra venta?");
-}
-
-// Mostrar historial en consola
-console.log("Historial de ventas:", registroVentas);
-console.log("Stock final:", stockDisponible);
-
-
+    // Inicializar menú
+    mostrarMenu();
