@@ -1,10 +1,10 @@
-    body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        
+body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
+    .container { max-width: 700px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px #ccc; }
+    h2 { color: #d35400; }
+    table { width: 100%; margin-bottom: 20px; border-collapse: collapse; }
+    th, td { padding: 8px; text-align: center; border-bottom: 1px solid #eee; }
+    th { background: #f8e0c0; }
+    button { background: #d35400; color: #fff; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #e67e22; }
+    #cart { margin-top: 30px; }
+    .desc { color: #27ae60; font-size: 0.95em; }
