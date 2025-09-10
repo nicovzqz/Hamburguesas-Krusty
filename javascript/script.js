@@ -9,7 +9,7 @@ const hamburguesas = [
 
     function mostrarMenu() {
       const tbody = document.getElementById('menu-body');
-      tbody.innerHTML = '';
+      tbody.innerHTML = ''
       hamburguesas.forEach((burger, idx) => {
         let desc = '';
         if (burger.nombre === "Cangreburger") {
