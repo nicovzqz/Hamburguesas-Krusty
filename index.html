@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Tienda de Hamburguesas</title>
-    <link rel="stylesheet" href="./style/style.css">    
+  <meta charset="UTF-8">
+  <title>Venta de Hamburguesas Krusty</title>
+    <link rel="stylesheet" href="style/style.css">
+<script src="javascript/script.js" defer> </script>
 </head>
 <body>
-    <h1>Tienda de Hamburguesas</h1>
-<p>Hamburgueseria Krusty. 
-Aqui encontraras las mejores hamburguesas del mundo. 
-    Descuentos especiales:
-10% de descuento para compras de 5+ unidades -15% de descuento para compras de 10+ unidades.</p>
+  <div class="container">
+    <h2>Menú de Hamburguesas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Hamburguesa</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Agregar</th>
+        </tr>
+      </thead>
+      <tbody id="menu-body"></tbody>
+    </table>
 
-    <script src="./javascript/script.js"></script>
+    <div id="cart">
+      <h2>Carrito</h2>
+      <ul id="cart-list"></ul>
+      <p id="total">Total: $0</p>
+    </div>
+  </div>
+  
 </body>
 </html>
