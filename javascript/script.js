@@ -54,7 +54,7 @@ function entradaDatos() {
     case 'Cancha':
         precioBurger = 18000;
     break;
-    case 'Afromerican':
+    case 'Afroamerican':
         precioBurger = 20000;
     break;
 }
@@ -116,3 +116,5 @@ while (continuar) {
 // Mostrar historial en consola
 console.log("Historial de ventas:", registroVentas);
 console.log("Stock final:", stockDisponible);
+
+
