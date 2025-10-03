@@ -315,6 +315,31 @@ footer {
   transform: translateY(0);
   transition: opacity 0.4s, transform 0.4s;
 }
+
+/* Popup de carrito vacío */
+.popup-vacio {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  background: #e65100;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 24px rgba(230,81,0,0.18);
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+  transform: translateY(30px);
+}
+.popup-vacio.mostrar {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
 @keyframes fadeOut {
   to { opacity: 0; transform: translateY(30px);}
 }
