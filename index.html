@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburguesas Krusty</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Hamburguesas Krusty</h1>
+        <nav>
+            <ul>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="filtros">
+        <h2>Filtrar Productos</h2>
+        <label for="categoria">Categoría:</label>
+        <select id="categoria">
+            <option value="todos">Todos</option>
+            <option value="hamburguesas">Hamburguesas</option>
+            <option value="bebidas">Bebidas</option>
+            <option value="papas">Papas Fritas</option>
+        </select>
+        <label for="tipo">Tipo:</label>
+        <select id="tipo">
+            <option value="todos">Todos</option>
+            <option value="Cangreburger">Cangreburger</option>
+            <option value="Afroamerican">Afroamerican</option>
+            <option value="Chiliburger">Chiliburger</option>
+            <option value="Cancha Burger">Cancha Burger</option>
+            <option value="Coca-Cola">Coca-Cola</option>
+            <option value="Fanta">Fanta</option>
+            <option value="Agua">Agua</option>
+            <option value="Cerveza">Cerveza</option>
+            <option value="Papas Clásicas">Papas Clásicas</option>
+            <option value="Papas con Provenzal">Papas con Provenzal</option>
+            <option value="Papas con Cheddar">Papas con Cheddar</option>
+        </select>
+        <button id="filtrar">Filtrar</button>
+    </section>
+
+    <section id="productos">
+        <h2>Productos</h2>
+        <div id="lista-productos"></div>
+    </section>
+
+    <section id="carrito">
+        <h2>Carrito de Compras</h2>
+        <div id="lista-carrito"></div>
+        <div id="total-carrito"></div>
+        <button id="comprar">Comprar</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Krusty's</p>
+    </footer>
+
+    <!-- Modal de confirmación de compra -->
+    <div id="modal-compra" class="modal">
+      <div class="modal-contenido">
+        <span id="cerrar-modal" class="cerrar">&times;</span>
+        <h2>¡Muchas gracias!</h2>
+        <p>Estamos preparando tu pedido.</p>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
