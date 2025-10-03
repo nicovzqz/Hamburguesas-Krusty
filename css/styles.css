@@ -369,3 +369,14 @@ footer {
         gap: 0.5rem;
     }
 }
+
+.krusty-img-fixed {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 220px;
+  height: auto;
+  z-index: 1200;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border-radius: 18px;
+}
