@@ -260,7 +260,7 @@ footer {
     box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
 }
 
-/* Modal de compra */
+/* Modal de carrito */
 .modal {
   display: none;
   position: fixed;
@@ -290,6 +290,33 @@ footer {
   color: #e65100;
   cursor: pointer;
   font-weight: bold;
+}
+
+/* Popup de producto agregado */
+.popup-agregado {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #388e3c;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 24px rgba(56,142,60,0.18);
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+  transform: translateY(30px);
+}
+.popup-agregado.mostrar {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s, transform 0.4s;
+}
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateY(30px);}
 }
 
 @keyframes fadeIn {

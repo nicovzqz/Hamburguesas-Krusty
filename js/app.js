@@ -67,6 +67,7 @@ function agregarAlCarrito(id, cantidad) {
         carrito.push({ id, cantidad });
     }
     renderizarCarrito();
+    mostrarPopupAgregado();
 }
 
 function eliminarDelCarrito(id) {
@@ -143,11 +144,34 @@ document.getElementById('cerrar-modal').onclick = function() {
     document.getElementById('modal-compra').style.display = 'none';
 };
 window.onclick = function(event) {
-    const modal = document.getElementById('modal-compra');
-    if (event.target === modal) {
-        modal.style.display = 'none';
+    const modalCarrito = document.getElementById('modal-carrito');
+    if (event.target === modalCarrito) {
+        modalCarrito.style.display = 'none';
+    }
+    const modalCompra = document.getElementById('modal-compra');
+    if (event.target === modalCompra) {
+        modalCompra.style.display = 'none';
     }
 };
+
+// Mostrar modal del carrito
+document.getElementById('abrir-carrito').onclick = function() {
+    document.getElementById('modal-carrito').style.display = 'flex';
+    renderizarCarrito();
+};
+// Cerrar modal del carrito
+document.getElementById('cerrar-carrito').onclick = function() {
+    document.getElementById('modal-carrito').style.display = 'none';
+};
+
+// Mostrar popup de agregado
+function mostrarPopupAgregado() {
+    const popup = document.getElementById('popup-agregado');
+    popup.classList.add('mostrar');
+    setTimeout(() => {
+        popup.classList.remove('mostrar');
+    }, 1800);
+}
 
 // Inicializar
 cargarProductos();
