@@ -374,7 +374,7 @@ footer {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: 260px;
+  width: 180px;
   height: auto;
   z-index: 1200;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
@@ -384,22 +384,22 @@ footer {
 
 @media (max-width: 1200px) {
   .krusty-img-fixed {
-    width: 180px;
+    width: 110px;
   }
 }
 
 @media (max-width: 800px) {
   .krusty-img-fixed {
-    width: 110px;
-    bottom: 12px;
-    left: 12px;
+    width: 60px;
+    bottom: 8px;
+    left: 8px;
   }
 }
 
 @media (max-width: 500px) {
   .krusty-img-fixed {
-    width: 60px;
-    bottom: 6px;
-    left: 6px;
+    width: 32px;
+    bottom: 2px;
+    left: 2px;
   }
 }
