@@ -127,7 +127,7 @@ function renderizarCarrito() {
 // Comprar
 document.getElementById('comprar').addEventListener('click', () => {
     if (carrito.length === 0) {
-        alert('El carrito está vacío.');
+        mostrarPopupVacio();
         return;
     }
     mostrarModalCompra();
@@ -167,6 +167,14 @@ document.getElementById('cerrar-carrito').onclick = function() {
 // Mostrar popup de agregado
 function mostrarPopupAgregado() {
     const popup = document.getElementById('popup-agregado');
+    popup.classList.add('mostrar');
+    setTimeout(() => {
+        popup.classList.remove('mostrar');
+    }, 1800);
+}
+
+function mostrarPopupVacio() {
+    const popup = document.getElementById('popup-vacio');
     popup.classList.add('mostrar');
     setTimeout(() => {
         popup.classList.remove('mostrar');
