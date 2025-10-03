@@ -374,9 +374,32 @@ footer {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: 220px;
+  width: 260px;
   height: auto;
   z-index: 1200;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
   border-radius: 18px;
+  transition: width 0.3s, bottom 0.3s, left 0.3s;
+}
+
+@media (max-width: 1200px) {
+  .krusty-img-fixed {
+    width: 180px;
+  }
+}
+
+@media (max-width: 800px) {
+  .krusty-img-fixed {
+    width: 110px;
+    bottom: 12px;
+    left: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .krusty-img-fixed {
+    width: 60px;
+    bottom: 6px;
+    left: 6px;
+  }
 }
