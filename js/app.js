@@ -106,7 +106,7 @@ function renderizarCarrito() {
 
     let descuento = 0;
     let detalleDescuento = '';
-    if (cantHamburguesas > 3) {
+    if (cantHamburguesas > 2) {
         descuento = subtotalHamburguesas * 0.20;
         detalleDescuento = `
             <div style="color:#e65100; font-weight:bold; margin-bottom:8px;">
