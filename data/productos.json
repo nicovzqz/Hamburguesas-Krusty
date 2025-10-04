@@ -3,7 +3,7 @@
         "id": 1,
         "nombre": "Cangreburger",
         "categoria": "hamburguesas",
-        "precio": 15.000,
+        "precio": 15000,
         "descripcion": "La original y famosa hamburguesa de Fondo de Bikini, con queso, lechuga y salsa secreta.",
         "imagen": "assets/fotos/hamburguesas/cangreburger.jpeg"
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "nombre": "Afroamerican",
         "categoria": "hamburguesas",
-        "precio": 16.500,
+        "precio": 16500,
         "descripcion": "Hamburguesa con doble carne, cebolla caramelizada y salsa barbacoa.",
         "imagen": "assets/fotos/hamburguesas/afroamerican.jpg"
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "nombre": "Chiliburger",
         "categoria": "hamburguesas",
-        "precio": 17.000,
+        "precio": 17000,
         "descripcion": "Hamburguesa picante con chili, jalapeños y queso cheddar fundido.",
         "imagen": "assets/fotos/hamburguesas/chiliburger.png"
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "nombre": "Cancha Burger",
         "categoria": "hamburguesas",
-        "precio": 16.000,
+        "precio": 16000,
         "descripcion": "Hamburguesa clásica de estadio, con panceta, huevo y papas pay.",
         "imagen": "assets/fotos/hamburguesas/canchaburger.jpg"
     },
@@ -35,7 +35,7 @@
         "id": 5,
         "nombre": "Coca-Cola",
         "categoria": "bebidas",
-        "precio": 15.000,
+        "precio": 15000,
         "descripcion": "Refresco clásico, bien frío.",
         "imagen": "assets/fotos/bebidas/cocacola.jpg"
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "nombre": "Fanta",
         "categoria": "bebidas",
-        "precio": 7.500,
+        "precio": 7500,
         "descripcion": "Bebida gaseosa sabor naranja.",
         "imagen": "assets/fotos/bebidas/fanta.jpg"
     },
@@ -51,7 +51,7 @@
         "id": 7,
         "nombre": "Agua",
         "categoria": "bebidas",
-        "precio": 5.000,
+        "precio": 5000,
         "descripcion": "Agua mineral sin gas.",
         "imagen": "assets/fotos/bebidas/agua.jpg"
     },
@@ -59,7 +59,7 @@
         "id": 8,
         "nombre": "Cerveza",
         "categoria": "bebidas",
-        "precio": 12.500,
+        "precio": 12500,
         "descripcion": "Cerveza rubia bien fría.",
         "imagen": "assets/fotos/bebidas/cerveza.jpg"
     },
@@ -67,7 +67,7 @@
         "id": 9,
         "nombre": "Papas Clásicas",
         "categoria": "papas",
-        "precio": 12.000,
+        "precio": 12000,
         "descripcion": "Papas fritas doradas y crocantes.",
         "imagen": "assets/fotos/papas/clasicas.jpg"
     },
@@ -75,7 +75,7 @@
         "id": 10,
         "nombre": "Papas con Provenzal",
         "categoria": "papas",
-        "precio": 12.500,
+        "precio": 12500,
         "descripcion": "Papas fritas con ajo y perejil fresco.",
         "imagen": "assets/fotos/papas/provenzal.jpg"
     },
@@ -83,7 +83,7 @@
         "id": 11,
         "nombre": "Papas con Cheddar",
         "categoria": "papas",
-        "precio": 13.000,
+        "precio": 13000,
         "descripcion": "Papas fritas bañadas en queso cheddar fundido.",
         "imagen": "assets/fotos/papas/cheddar.jpg"
     }
