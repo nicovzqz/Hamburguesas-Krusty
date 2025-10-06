@@ -143,7 +143,7 @@ document.getElementById('comprar').addEventListener('click', async () => {
   const { value: formValues } = await Swal.fire({
     title: "Datos para el envío",
     html: `
-      <img src="assets/fotos/krusty.png" alt="Krusty" class="krusty-popup-img">
+      <img src="assets/fotos/kb.png" alt="Krusty" class="krusty-popup-img">
       <input id="swal-input1" class="swal2-input" placeholder="Dirección">
       <input id="swal-input2" class="swal2-input" placeholder="Teléfono de contacto" type="tel" pattern="[0-9]*" inputmode="numeric" maxlength="15">
     `,
