@@ -403,3 +403,11 @@ footer {
     left: 2px;
   }
 }
+
+.krusty-popup-img {
+  max-width: 120px;
+  width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1em auto;
+}
