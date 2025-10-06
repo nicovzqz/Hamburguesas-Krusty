@@ -126,9 +126,7 @@ function renderizarCarrito() {
 
 // Comprar
 document.getElementById('comprar').addEventListener('click', async () => {
-  // Verifica si el carrito está vacío
   if (!carrito || carrito.length === 0) {
-    // Muestra el popup de carrito vacío
     Swal.fire({
       icon: 'warning',
       title: 'El carrito está vacío',
@@ -140,16 +138,14 @@ document.getElementById('comprar').addEventListener('click', async () => {
     return;
   }
 
-  // Oculta la imagen fixeada antes de mostrar el popup
   document.querySelector('.krusty-img-fixed').style.display = 'none';
 
-  // Popup para dirección y teléfono
   const { value: formValues } = await Swal.fire({
     title: "Datos para el envío",
     html: `
-      <img src="assets/fotos/kb.png" alt="Krusty" class="krusty-popup-img">
+      <img src="assets/fotos/krusty.png" alt="Krusty" class="krusty-popup-img">
       <input id="swal-input1" class="swal2-input" placeholder="Dirección">
-      <input id="swal-input2" class="swal2-input" placeholder="Teléfono de contacto">
+      <input id="swal-input2" class="swal2-input" placeholder="Teléfono de contacto" type="tel" pattern="[0-9]*" inputmode="numeric" maxlength="15">
     `,
     confirmButtonText: "Finalizar compra",
     focusConfirm: false,
@@ -174,11 +170,14 @@ document.getElementById('comprar').addEventListener('click', async () => {
         Swal.showValidationMessage('Por favor completa ambos campos');
         return false;
       }
+      if (!/^\d+$/.test(telefono)) {
+        Swal.showValidationMessage('El teléfono solo debe contener números');
+        return false;
+      }
       return [direccion, telefono];
     }
   });
 
-  // Vuelve a mostrar la imagen fixeada después del popup
   document.querySelector('.krusty-img-fixed').style.display = '';
 
   if (formValues) {
