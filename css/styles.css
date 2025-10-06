@@ -411,3 +411,27 @@ footer {
   display: block;
   margin: 0 auto 1em auto;
 }
+
+#abrir-carrito {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1001;
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(76, 175, 80, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+#abrir-carrito {
+    box-shadow: 0 12px 40px rgba(46, 125, 50, 0.5);
+}
+
+#abrir-carrito:hover {
+    box-shadow: 0 16px 48px rgba(46, 125, 50, 0.7);
+}
