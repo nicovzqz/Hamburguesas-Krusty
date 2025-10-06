@@ -1,84 +1,84 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamburguesas Krusty</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/png" href="assets/fotos/favi.png">
-</head>
-<body>
-    <header>
-        <h1>Bienvenido a Hamburguesas Krusty</h1>
-        <nav>
-            <ul>
-                <li><a href="#productos">Comprando a partir de 3 hamburguesas 20% de descuento</a></li>
-                
-            </ul>
-        </nav>
-    </header>
-    
-    <section id="filtros">
-        <h2>Filtrar Productos</h2>
-        <label for="categoria">Categoría:</label>
-        <select id="categoria">
-            <option value="todos">Todos</option>
-            <option value="hamburguesas">Hamburguesas</option>
-            <option value="bebidas">Bebidas</option>
-            <option value="papas">Papas Fritas</option>
-        </select>
-        <label for="tipo">Tipo:</label>
-        <select id="tipo">
-            <option value="todos">Todos</option>
-            <option value="Cangreburger">Cangreburger</option>
-            <option value="Afroamerican">Afroamerican</option>
-            <option value="Chiliburger">Chiliburger</option>
-            <option value="Cancha Burger">Cancha Burger</option>
-            <option value="Coca-Cola">Coca-Cola</option>
-            <option value="Fanta">Fanta</option>
-            <option value="Agua">Agua</option>
-            <option value="Cerveza">Cerveza</option>
-            <option value="Papas Clásicas">Papas Clásicas</option>
-            <option value="Papas con Provenzal">Papas con Provenzal</option>
-            <option value="Papas con Cheddar">Papas con Cheddar</option>
-        </select>
-        <button id="filtrar">Filtrar</button>
-    </section>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hamburguesas Krusty</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" type="image/png" href="assets/fotos/favi.png">
+    </head>
+    <body>
+        <header>
+            <h1>Bienvenido a Hamburguesas Krusty</h1>
+            <nav>
+                <ul>
+                    <li><a href="#productos">Comprando 3 hamburguesas iguales 20% de descuento</a></li>
+                    
+                </ul>
+            </nav>
+        </header>
+        
+        <section id="filtros">
+            <h2>Filtrar Productos</h2>
+            <label for="categoria">Categoría:</label>
+            <select id="categoria">
+                <option value="todos">Todos</option>
+                <option value="hamburguesas">Hamburguesas</option>
+                <option value="bebidas">Bebidas</option>
+                <option value="papas">Papas Fritas</option>
+            </select>
+            <label for="tipo">Tipo:</label>
+            <select id="tipo">
+                <option value="todos">Todos</option>
+                <option value="Cangreburger">Cangreburger</option>
+                <option value="Afroamerican">Afroamerican</option>
+                <option value="Chiliburger">Chiliburger</option>
+                <option value="Cancha Burger">Cancha Burger</option>
+                <option value="Coca-Cola">Coca-Cola</option>
+                <option value="Fanta">Fanta</option>
+                <option value="Agua">Agua</option>
+                <option value="Cerveza">Cerveza</option>
+                <option value="Papas Clásicas">Papas Clásicas</option>
+                <option value="Papas con Provenzal">Papas con Provenzal</option>
+                <option value="Papas con Cheddar">Papas con Cheddar</option>
+            </select>
+            <button id="filtrar">Filtrar</button>
+        </section>
 
-    <section id="productos">
-        <h2>Productos</h2>
-        <div id="lista-productos"></div>
-    </section>
+        <section id="productos">
+            <h2>Productos</h2>
+            <div id="lista-productos"></div>
+        </section>
 
-    <button id="abrir-carrito" style="position:fixed;top:30px;right:30px;z-index:1001;background:#ff9800;color:#fff;border:none;padding:1rem 1.5rem;border-radius:50px;font-size:1.1rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.08);">🛒 Carrito</button>
+        <button id="abrir-carrito" style="position:fixed;top:30px;right:30px;z-index:1001;background:#ff9800;color:#fff;border:2px solid rgba(165, 214, 167, 0.4);padding:1rem 1.5rem;border-radius:50px;font-size:1.1rem;cursor:pointer;box-shadow:0 12px 32px rgba(244, 67, 54, 0.3);">🛒 Carrito</button>
 
-    <div id="modal-carrito" class="modal">
-      <div class="modal-contenido" style="max-width:500px;">
-        <span id="cerrar-carrito" class="cerrar">&times;</span>
-        <h2>Carrito de Compras</h2>
-        <div id="lista-carrito"></div>
-        <div id="total-carrito"></div>
-        <button id="comprar">Comprar</button>
-      </div>
-    </div>
+        <div id="modal-carrito" class="modal">
+        <div class="modal-contenido" style="max-width:500px;">
+            <span id="cerrar-carrito" class="cerrar">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="lista-carrito"></div>
+            <div id="total-carrito"></div>
+            <button id="comprar">Comprar</button>
+        </div>
+        </div>
 
-    <footer>
-        <p>&copy; 2025 Krusty's</p>
-    </footer>
+        <footer>
+            <p>&copy; 2025 Krusty's</p>
+        </footer>
 
-    <!-- Modal de confirmación de compra -->
-    <div id="modal-compra" class="modal">
-      <div class="modal-contenido">
-        <span id="cerrar-modal" class="cerrar">&times;</span>
-        <h2>¡Muchas gracias!</h2>
-        <p>Estamos preparando tu pedido.</p>
-      </div>
-    </div>
+        <!-- Modal de confirmación de compra -->
+        <div id="modal-compra" class="modal">
+        <div class="modal-contenido">
+            <span id="cerrar-modal" class="cerrar">&times;</span>
+            <h2>¡Muchas gracias!</h2>
+            <p>Estamos preparando tu pedido.</p>
+        </div>
+        </div>
 
-    <div id="popup-agregado" class="popup-agregado">Se agregó el producto al carrito de compras</div>
-    <div id="popup-vacio" class="popup-vacio">El carrito está vacío</div>
-    <img src="assets/fotos/krusty.png" alt="Krusty" class="krusty-img-fixed">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/app.js"></script>
-</body>
-</html>
+        <div id="popup-agregado" class="popup-agregado">Se agregó el producto al carrito de compras</div>
+        <div id="popup-vacio" class="popup-vacio">El carrito está vacío</div>
+        <img src="assets/fotos/krusty.png" alt="Krusty" class="krusty-img-fixed">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="js/app.js"></script>
+    </body>
+    </html>
