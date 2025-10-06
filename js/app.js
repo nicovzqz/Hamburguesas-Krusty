@@ -126,13 +126,28 @@ function renderizarCarrito() {
 
 // Comprar
 document.getElementById('comprar').addEventListener('click', async () => {
+  // Verifica si el carrito está vacío
+  if (!carrito || carrito.length === 0) {
+    // Muestra el popup de carrito vacío
+    Swal.fire({
+      icon: 'warning',
+      title: 'El carrito está vacío',
+      text: 'Agrega productos antes de finalizar la compra',
+      confirmButtonColor: "#ff9800",
+      background: "#fff8e1",
+      color: "#e65100"
+    });
+    return;
+  }
+
   // Oculta la imagen fixeada antes de mostrar el popup
   document.querySelector('.krusty-img-fixed').style.display = 'none';
 
+  // Popup para dirección y teléfono
   const { value: formValues } = await Swal.fire({
     title: "Datos para el envío",
     html: `
-      <img src="assets/fotos/kb.png" alt="Krusty" class="krusty-popup-img">
+      <img src="assets/fotos/krusty.png" alt="Krusty" class="krusty-popup-img">
       <input id="swal-input1" class="swal2-input" placeholder="Dirección">
       <input id="swal-input2" class="swal2-input" placeholder="Teléfono de contacto">
     `,
@@ -141,7 +156,7 @@ document.getElementById('comprar').addEventListener('click', async () => {
     width: 600,
     padding: "3em",
     color: "#e65100",
-    background: "#fff8e1", // Fondo sólido, NO traslúcido
+    background: "#fff8e1",
     backdrop: `
       rgba(255,152,0,0.3)
       url("assets/fotos/krusty.png")
@@ -174,7 +189,8 @@ document.getElementById('comprar').addEventListener('click', async () => {
       background: "#fff8e1",
       confirmButtonColor: "#ff9800"
     });
-    // Aquí puedes vaciar el carrito o realizar otras acciones finales
+    carrito = [];
+    renderizarCarrito();
   }
 });
 
