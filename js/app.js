@@ -125,14 +125,57 @@ function renderizarCarrito() {
 }
 
 // Comprar
-document.getElementById('comprar').addEventListener('click', () => {
-    if (carrito.length === 0) {
-        mostrarPopupVacio();
-        return;
+document.getElementById('comprar').addEventListener('click', async () => {
+  // Oculta la imagen fixeada antes de mostrar el popup
+  document.querySelector('.krusty-img-fixed').style.display = 'none';
+
+  const { value: formValues } = await Swal.fire({
+    title: "Datos para el envío",
+    html: `
+      <img src="assets/fotos/kb.png" alt="Krusty" class="krusty-popup-img">
+      <input id="swal-input1" class="swal2-input" placeholder="Dirección">
+      <input id="swal-input2" class="swal2-input" placeholder="Teléfono de contacto">
+    `,
+    confirmButtonText: "Finalizar compra",
+    focusConfirm: false,
+    width: 600,
+    padding: "3em",
+    color: "#e65100",
+    background: "#fff8e1", // Fondo sólido, NO traslúcido
+    backdrop: `
+      rgba(255,152,0,0.3)
+      url("assets/fotos/krusty.png")
+      left top
+      no-repeat
+    `,
+    confirmButtonColor: "#ff9800",
+    customClass: {
+      popup: 'swal2-krusty'
+    },
+    preConfirm: () => {
+      const direccion = document.getElementById("swal-input1").value.trim();
+      const telefono = document.getElementById("swal-input2").value.trim();
+      if (!direccion || !telefono) {
+        Swal.showValidationMessage('Por favor completa ambos campos');
+        return false;
+      }
+      return [direccion, telefono];
     }
-    mostrarModalCompra();
-    carrito = [];
-    renderizarCarrito();
+  });
+
+  // Vuelve a mostrar la imagen fixeada después del popup
+  document.querySelector('.krusty-img-fixed').style.display = '';
+
+  if (formValues) {
+    Swal.fire({
+      title: "¡Muchas gracias!",
+      text: "Estamos preparando tu pedido",
+      color: "#e65100",
+      background: "#fff8e1",
+      confirmButtonColor: "#ff9800"
+    });
+    // Aquí puedes vaciar el carrito o realizar otras acciones finales
+  }
 });
 
 // Modal de compra
@@ -180,6 +223,8 @@ function mostrarPopupVacio() {
         popup.classList.remove('mostrar');
     }, 1800);
 }
+
+
 
 // Inicializar
 cargarProductos();
